@@ -2,7 +2,10 @@ import * as bodyParser from "body-parser";
 import * as express from "express";
 import * as path from "path";
 
-import { APIRoute } from "./api";
+import { TriggerAPI } from "./trigger";
+import { ActionAPI } from "./action";
+import { TestSetupAPI } from "./test-setup";
+import { StatusAPI } from "./status";
 import { ControllerRoute } from "./controller";
 
 /**
@@ -66,10 +69,11 @@ export class Server {
    * @method api
    */
   public api() {
-    let router = express.Router();
-    let apiRoutes = new APIRoute();
-    apiRoutes.buildRoutes(router);
-    this.app.use('/api/v1', router);
+    [new TriggerAPI(), new ActionAPI(), new TestSetupAPI(), new StatusAPI()].forEach(inst => {
+      let router = express.Router();
+      inst.buildRoutes(router);
+      this.app.use(`/ifttt/v1/${inst.getPath()}`, router);
+    });
   }
 
   /**
