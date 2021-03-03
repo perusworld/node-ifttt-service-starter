@@ -59,7 +59,7 @@
     "color-convert": "^2.0.1",
     "express": "^4.17.1",
     "moment": "^2.24.0",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "randomstring": "^1.1.5",
     "request": "^2.88.0",
     "uuid": "^3.3.3"
