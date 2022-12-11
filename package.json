@@ -57,7 +57,7 @@
     "@types/uuid": "^3.4.5",
     "body-parser": "^1.19.0",
     "color-convert": "^2.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "moment": "^2.29.2",
     "pug": "^3.0.1",
     "randomstring": "^1.1.5",
